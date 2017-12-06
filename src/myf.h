@@ -17,19 +17,23 @@
 #ifndef _MYF_H
 #define _MYF_H
 
-#if defined (_MAIN_C_)
-        GtkBuilder *builderG;
-        IplImage *dst_imageG , *src_imageG;
-        CvCapture *captureG;
-#else
-        extern GtkBuilder *builderG;
-        extern IplImage *dst_imageG , *src_imageG;
-        extern CvCapture *captureG;
-#endif
-
 #include <gtk/gtk.h>
 #include <cv.h>
 #include <highgui.h>
+
+#include "opencv2/videoio/videoio_c.h"
+#include <cairo.h>
+#include "math.h"
+
+#if defined (_MAIN_C_)
+    GtkBuilder *builderG;
+    IplImage *dst_imageG , *src_imageG;
+    CvCapture *captureG;
+#else
+    extern GtkBuilder *builderG;
+    extern IplImage *dst_imageG , *src_imageG;
+    extern CvCapture *captureG;
+#endif
 
 //...
 

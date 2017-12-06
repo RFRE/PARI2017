@@ -16,6 +16,8 @@
  
  #include "myf.h"
  
+int cvRound(double value) {return(ceil(value));}
+ 
 CvCapture *pari_StartImageAcquisition()
 {
     CvCapture *capture = cvCaptureFromCAM(0);              //Capture using 1st camera: i.e., no. 0
@@ -63,7 +65,7 @@ void pari_RefreshDrawingArea( char * widgetName, IplImage *img)
           printf("failed\n");
           return;
         }
-        GdkPixbuf *pix=pari_ConvertOpenCv2Gtk(img, da->allocation.width, da->allocation.height );
+        GdkPixbuf *pix=pari_ConvertOpenCv2Gtk(img, gtk_widget_get_allocated_width(da), gtk_widget_get_allocated_height(da));
         cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(da));
         gdk_cairo_set_source_pixbuf(cr, pix, 0, 0);
         cairo_paint(cr);

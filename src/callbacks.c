@@ -14,7 +14,7 @@
  * =====================================================================================
  */
  
- #include "myf.h"
+#include "myf.h"
 
 gboolean pari_UpdateImageAreas(gpointer data)
 {
@@ -27,10 +27,10 @@ gboolean pari_UpdateImageAreas(gpointer data)
 gboolean on_drawingarea1_expose_event(GtkWidget * widget, GdkEvent * event, gpointer user_data)
 {
     pari_PerformImageAcquisition(captureG);             //acquire new image
-    pari_ProcessUserOperations(src_imageG, dst_imageG); // Perform here the openCV transformations
+    //pari_ProcessUserOperations(src_imageG, dst_imageG); // Perform here the openCV transformations
 
     //update the drawing area displays
     pari_RefreshDrawingArea("drawingarea1", src_imageG);
-    pari_RefreshdRawingArea("drawingarea2", dst_imageG);
+    pari_RefreshDrawingArea("drawingarea2", dst_imageG);
     return TRUE;
 }
